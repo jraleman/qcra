@@ -23,12 +23,17 @@
 ## **2. Credit Risk Analysis**
 
 TODO:
-- We formally define the economic capital requirement as well as the two different uncertainty models considered.
+- Formally define the economic capital requirement as well as the two different uncertainty models considered.
+- ECR summarizes in a single figure the amount of capital (or own funds) required to remain solvent at a given confidence level (usually linked to the risk appetite or target solvency rating) and a time horizon (usually one year).
+- It is a complementary metric to the regulatory capital requirements that refers to the amount of own funds required following regulatory criteria and rules [16].
+- In this paper, we consider only the ECR related to default risk, which is the loss that occurs when an obligor does not fulfill the repayment of a loan.
+- The main components of an ECR model for a portfolio of assets are the singleasset default probabilities, the loss given default, and the correlation among the single-asset default events.
+- In the following, we first introduce a general form of the credit risk analysis problem considered in this manuscript and then define concrete models in detail.
 
 ## **3. Quantum Algorithm**
 
 TODO:
-- Build on previous work [5] and discuss how to implement the quantum algorithms on a gate based quantum computer.
+- Build on previous work [3] and discuss how to implement the quantum algorithms on a gate based quantum computer.
 
 ## **4. Results**
 
@@ -48,7 +53,6 @@ TODO:
 
 - [1] https://www.investopedia.com/terms/e/economic-capital.asp#:~:text=Economic%20capital%20is%20the%20amount,known%20as%20a%20capital%20requirement).
 - [2] https://en.wikipedia.org/wiki/Rate_of_convergence
-- [3] Stefan Woerner and Daniel J. Egger, “Quantum risk anal- ysis,” npj Quantum Information 5, 15 (2019).
+- [3] Stefan Woerner and Daniel J. Egger, “Quantum risk analysis,” npj Quantum Information 5, 15 (2019).
 - [4] Nikitas Stamatopoulos, Daniel J. Egger, Yue Sun, Christa Zoufal, Raban Iten, Ning Shen, and Stefan Woerner, “Option Pricing using Quantum Computers,”
 arXiv:1905.02666 .
-- [5]
