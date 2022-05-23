@@ -14574,7 +14574,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">&#182;</a></h2><p>We introduce and examine a quantum algorithm for estimating credit risk that outperforms Monte Carlo simulations on traditional computers. We calculate the economic capital required, which is the difference between the Value at Risk (VaR) and the predicted loss distribution value (LDV). The calculation of the economic capital required is of interest, because it quantifies the amount of capital required to be solvent at a certain level of confidence, making it an important risk statistic. We implement this problem for a realistic loss distribution and analyze its scaling to a realistic problem size. We present estimates of the overall number of necessary qubits, the expected circuit depth, and how this translates into an expected runtime on future fault-tolerant quantum hardware under acceptable assumptions.</p>
+<h2 id="Abstract"><strong>Abstract</strong><a class="anchor-link" href="#Abstract">&#182;</a></h2><p><em>We introduce and examine quantum algorithms based on Quantum Amplitude Estimation (QAE), for estimating credit risk that outperforms Monte Carlo simulations on traditional computers. We calculate the Economic Capital (EC) required, which is the difference between the Value at Risk (VaR) and the predicted loss distribution value (LDV). The calculation of the economic capital required is of interest, because it quantifies the amount of capital required to be solvent at a certain level of confidence, making it an important risk statistic. We implement this problem for a realistic loss distribution and analyze its scaling to a realistic problem size. We present estimates of the overall number of necessary qubits, the expected circuit depth, and how this translates into an expected runtime on future fault-tolerant quantum hardware under acceptable assumptions.</em></p>
 
 </div>
 </div>
@@ -14582,8 +14582,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Credit risk analysis is a form of analysis performed by a credit analyst to determine a borrower’s ability to meet their debt obligations. The purpose of credit analysis is to determine the creditworthiness of borrowers by quantifying the risk of loss that the lender is exposed to. The three factors that lenders use to quantify credit risk include the probability of default, loss given default, and exposure at default. [1]</p>
-<p>The use of quantum computing could allow faster and accurate solutions, for example determining a credit risk profile of a client. It is said that financial institutions that can make the most of quantum computing are likely to see significant benefits. Banks and asset managers optimize portfolios based on computationally intense models that process large sets of variables. For this reason, they will be able to more effectively analyze large or unstructured data sets.</p>
+<h2 id="1.-Introduction">1. Introduction<a class="anchor-link" href="#1.-Introduction">&#182;</a></h2><p>Credit risk analysis is a form of analysis performed by a credit analyst to determine a borrower’s ability to meet their debt obligations. The purpose of credit analysis is to determine the creditworthiness of borrowers by quantifying the risk of loss that the lender is exposed to. The three factors that lenders use to quantify credit risk include the probability of default, loss given default, and exposure at default. [1]</p>
+<p>The use of quantum computing could allow faster and more accurate solutions, for example determining a credit risk profile of a client. It is said that financial institutions that can make the most of quantum computing are likely to see significant benefits. Banks and asset managers optimize portfolios based on computationally intense models that process large sets of variables. For this reason, they will be able to more effectively analyze large or unstructured data sets.</p>
 <p>In valuation, for example, the ability to speedily identify an optimal risk-adjusted portfolio is likely to create significant competitive advantage. For loan and bond portfolios, more precise estimates of credit exposures should lead to better optimization decisions.</p>
 <p>American and European banks are also exploring quantum computing opportunities. [2]</p>
 <ul>
@@ -14598,7 +14598,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Description-of-the-Problem">Description of the Problem<a class="anchor-link" href="#Description-of-the-Problem">&#182;</a></h2><p>Default risk is the risk that a lender takes on in the chance that a borrower will be unable to make the required payments on their debt obligation.</p>
+<h2 id="2.-Description-of-the-Problem">2. Description of the Problem<a class="anchor-link" href="#2.-Description-of-the-Problem">&#182;</a></h2><p>Default risk is the risk that a lender takes on in the chance that a borrower will be unable to make the required payments on their debt obligation.</p>
 <p>Whenever a lender extends credit to a borrower, there is a chance that the loan amount will not be paid back. The measurement that looks at this probability is the default risk. Default risk does not only apply to individuals who borrow money, but also to companies that issue bonds and due to financial constraints, are not able to make interest payments on those bonds. Whenever a lender extends credit, calculating the default risk of a borrower is crucial as part of its risk management strategy. Whenever an investor is evaluating an investment, determining the financial health of a company or private person is crucial in gauging investment risk.</p>
 <p>Lenders generally examine a company's financial statements and employ several financial ratios to determine the likelihood of debt repayment. Free cash flow is the cash that is generated after the company reinvests in itself and is calculated by subtracting capital expenditures from operating cash flow. Free cash flow is used for things such as debt and dividend payments. A free cash flow figure that is near zero or negative indicates that the company may be having trouble generating the cash necessary to deliver on promised payments. This could indicate a higher default risk.</p>
 <p>The risk of default on a debt arises from a borrower failing to make the required payments, for example:</p>
@@ -14607,14 +14607,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>A company is unable to repay asset-secured fixed or floating charge debt.</li>
 <li>A business or consumer does not pay a trade invoice when due</li>
 </ul>
+<!-- ------
 
+# TODO: Add paragraph 
+
+Here we study the QAE algorithm in estamitating the credit at risk, we test the algorithm in a two asset problem... In Section 2... blah blah blah
+
+We introduce a variant of Quantum Amplitude Estimation (QAE), called Iterative QAE (IQAE), which does not rely on Quantum Phase Estimation (QPE) but is only based on Grover’s Algorithm, which reduces the required number of qubits and gates. We provide a rigorous analysis of IQAE and prove that it achieves a quadratic speedup up to a double-logarithmic factor compared to classical Monte Carlo simulation with provably small constant overhead. Furthermore, we show with an empirical study that our algorithm outperforms other known QAE variants without QPE, some even by orders of magnitude, i.e., our algorithm requires significantly fewer samples to achieve the same estimation accuracy and confidence level.
+
+------ -->
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Problem-Definition">Problem Definition<a class="anchor-link" href="#Problem-Definition">&#182;</a></h3><p>We want to analyze the credit risk of a portfolio of $K$ assets. The default probability of every asset $k$ follows a Gaussian Conditional Independence model, i.e., given a value $z$ sampled from a latent random variable $Z$ following a standard normal distribution, the default probability of asset $k$ is given by:</p>
+<h3 id="2.1.-Problem-Definition">2.1. Problem Definition<a class="anchor-link" href="#2.1.-Problem-Definition">&#182;</a></h3><p>We analyze the credit risk of a portfolio of $K$ assets. The default probability of every asset $k$ follows a Gaussian Conditional Independence model, i.e., given a value $z$ sampled from a latent random variable $Z$ following a standard normal distribution, the default probability of asset $k$ is given by:</p>
 $$ p_k(z) = F\left( \frac{F^{-1}(p_k^0) - \sqrt{\rho_k}z}{\sqrt{1 - \rho_k}} \right) $$<p>where $F$ denotes the cumulative distribution function of $Z$, $p_k^0$ is the default probability of asset $k$ for $z=0$ and $\rho_k$ is the sensitivity of the default probability of asset $k$ with respect to $Z$. Thus, given a concrete realization of $Z$ the individual default events are assumed to be independent from each other.</p>
 <p>We are interested in analyzing risk measures of the total loss</p>
 $$ L = \sum_{k=1}^K \lambda_k X_k(Z) $$<p>where $\lambda_k$ denotes the loss given default of asset $k$, and given $Z$, $X_k(Z)$ denotes a Bernoulli variable representing the default event of asset $k$. More precisely, we are interested in the expected value $\mathbb{E}[L]$, the Value at Risk (VaR) of $L$ and the Conditional Value at Risk of $L$ (also called Expected Shortfall).</p>
@@ -14627,31 +14635,27 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Problem-Parameters">Problem Parameters<a class="anchor-link" href="#Problem-Parameters">&#182;</a></h3>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Python Dependencies (used for simulations and graphs)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">Aer</span><span class="p">,</span> <span class="n">execute</span>
-<span class="kn">from</span> <span class="nn">qiskit.circuit.library</span> <span class="kn">import</span> <span class="n">IntegerComparator</span><span class="p">,</span> <span class="n">WeightedAdder</span><span class="p">,</span> <span class="n">LinearAmplitudeFunction</span>
-<span class="kn">from</span> <span class="nn">qiskit.utils</span> <span class="kn">import</span> <span class="n">QuantumInstance</span>
-<span class="kn">from</span> <span class="nn">qiskit.algorithms</span> <span class="kn">import</span> <span class="n">IterativeAmplitudeEstimation</span><span class="p">,</span> <span class="n">EstimationProblem</span>
-<span class="kn">from</span> <span class="nn">qiskit_finance.circuit.library</span> <span class="kn">import</span> <span class="n">GaussianConditionalIndependenceModel</span> <span class="k">as</span> <span class="n">GCI</span>
-</pre></div>
+<h3 id="2.2.-Problem-Parameters">2.2. Problem Parameters<a class="anchor-link" href="#2.2.-Problem-Parameters">&#182;</a></h3><!-- ------
 
-     </div>
+# TODO: Write content
+
+> Which problem, you need to introduce the quantum algorithm that you want to use to solve this problem, before talking the number of qubits needed. (You can move this part in methods, when you discuss the QAE to solve VaR)
+
+------ -->
+
+<p>Quantum Amplitude Estimation (QAE)1 is a fundamental quantum algorithm with the potential to achieve a quadratic speedup for many applications that are classically solved through Monte Carlo (MC) simulation. It has been shown that we can leverage QAE in the financial service sector, e.g., for risk analysis2,3 or option pricing4,5,6, and also for generic tasks such as numerical integration7. While the estimation error bound of classical MC simulation scales as 𝒪(1/𝑀‾‾‾√), where M denotes the number of (classical) samples, QAE achieves a scaling of 𝒪(1/𝑀) for M (quantum) samples, indicating the aforementioned quadratic speedup.</p>
+<p>The canonical version of QAE is a combination of Quantum Phase Estimation (QPE)8 and Grover’s Algorithm. Since other QPE-based algorithms are believed to achieve exponential speedup, most prominently Shor’s Algorithm for factoring9, it has been speculated as to whether QAE can be simplified such that it uses only Grover iterations without a QPE-dependency. Removing the QPE-dependency would help to reduce the resource requirements of QAE in terms of qubits and circuit depth and lower the bar for practical applications of QAE.</p>
+<p>Recently, several approaches have been proposed in this direction. In ref. 10 the authors show how to replace QPE with a set of Grover iterations combined with a Maximum Likelihood Estimation (MLE), in the following called Maximum Likelihood Amplitude Estimation (MLAE). In ref. 11, QPE is replaced by the Hadamard test, analog to Kitaev’s Iterative QPE12,13 and similar approaches14,15.</p>
+<p>Both in refs. 10 and 11 propose potential simplifications of QAE but do not provide rigorous proofs of the correctness of the proposed algorithms. In ref. 11, it is not even clear how to control the accuracy of the algorithm other than possibly increasing the number of measurements of the evolving quantum circuits. Thus, the potential quantum advantage is difficult to compare and we will not discuss it in the remainder of this paper.</p>
+<p>In ref. 16, another variant of QAE was proposed. There, for the first time, it was rigorously proven that QAE without QPE can achieve a quadratic speedup over classical MC simulation. Following16, we call this algorithm QAE, Simplified (QAES). Although this algorithm achieves the desired asymptotic complexity exactly (i.e., without logarithmic factors), the involved constants are very large, and likely to render this algorithm impractical unless further optimized—as shown later in this paper.</p>
+<p>In the following, we propose a new version of QAE—called Iterative QAE (IQAE)—that achieves better results than all other tested algorithms. It provably has the desired asymptotic behavior up to a multiplicative log(2/𝛼log2(𝜋/4𝜖)) factor, where ϵ &gt; 0 denotes the target accuracy, and 1 − α the resulting confidence level.</p>
+<p>Like in ref. 16, our algorithm requires iterative queries to the quantum computer to achieve the quadratic speedup and cannot be parallelized. Only MLAE allows the parallel execution of the different queries as the estimate is derived via classical MLE applied to the results of all queries. Although parallelization is a nice feature, the potential speedup is limited. Assuming the length of the queries is doubled in each iteration (like for canonical QAE and MLAE) the speedup is at most a factor of two since the computationally most expensive query dominates all the others.</p>
+<p>With MLAE, QAES, and IQAE we have three promising variants of QAE that do not require QPE and it is of general interest to empirically compare their performance. Of similar interest is the question of whether the canonical QAE with QPE—while being (quantum) computationally more expensive—might lead to some performance benefits. To be able to better compare the performance of canonical QAE with MLAE, QAES, and IQAE, we extend QAE by a classical MLE postprocessing based on the observed results. This improves the results without additional queries to the quantum computer and allows us to derive proper confidence intervals.</p>
+<p>QAE was first introduced in ref. 1 and assumes the problem of interest is given by an operator 𝒜 acting on n + 1 qubits such that</p>
+
 </div>
 </div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput  celltag_hide-input">
 
 </div>
 <div class="jp-Cell-inputWrapper">
@@ -14669,49 +14673,40 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_hide-input">
+</div>
 <div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
-<span class="n">n_z</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">z_max</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">z_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">z_max</span><span class="p">,</span> <span class="n">z_max</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">n_z</span><span class="p">)</span>
-<span class="n">p_zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
-<span class="n">rhos</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
-<span class="n">lgd</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_zeros</span><span class="p">)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<!-- -----------------
 
-<span class="c1"># Grover Algorithm Data</span>
-<span class="n">grover</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">grover</span><span class="p">)</span>
-<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">grover</span><span class="p">)</span>
-<span class="n">winner</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;|w⟩&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
-<span class="n">avg_amplitude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;1/√N&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+# TODO: Describe what these values are
 
-<span class="c1"># Graph styles</span>
-<span class="n">label_size</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">title_size</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">c_off</span> <span class="o">=</span> <span class="s1">&#39;lightgray&#39;</span>
-<span class="n">c_on</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_on</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">,</span> <span class="n">c_off</span><span class="p">]</span>
-</pre></div>
+- n_z = 2
 
-     </div>
+- z_max = 2
+
+- z_values = np.linspace(-z_max, z_max, 2 ** n_z)
+
+- p_zeros = [0.15, 0.25]
+
+- rhos = [0.1, 0.05]
+
+- lgd = [1, 2]
+
+- K = len(p_zeros)
+
+- alpha = 0.05
+
+----------------- -->
 </div>
 </div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput  celltag_hide-input">
 
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Methods">Methods<a class="anchor-link" href="#Methods">&#182;</a></h2><h3 id="How-to-Estimate-the-Risk">How to Estimate the Risk<a class="anchor-link" href="#How-to-Estimate-the-Risk">&#182;</a></h3><p>Value at risk (VaR) is a statistic that quantifies the extent of possible financial losses within a firm, portfolio, or position over a specific time frame.</p>
+<h2 id="3.-Methods">3. Methods<a class="anchor-link" href="#3.-Methods">&#182;</a></h2><h3 id="3.1.-How-to-Estimate-the-Risk">3.1. How to Estimate the Risk<a class="anchor-link" href="#3.1.-How-to-Estimate-the-Risk">&#182;</a></h3><p>Value at risk (VaR) is a statistic that quantifies the extent of possible financial losses within a firm, portfolio, or position over a specific time frame.</p>
 <p>A financial firm, for example, may determine an asset has a 3% one-month VaR of 2%, representing a 3% chance of the asset declining in value by 2% during the one-month time frame. The conversion of the 3% chance of occurrence to a daily ratio places the odds of a 2% loss at one day per month.</p>
 <p>The CVar quantifies the average expected loss.</p>
 
@@ -14721,17 +14716,42 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Montecarlo">Montecarlo<a class="anchor-link" href="#Montecarlo">&#182;</a></h3><p>The Monte Carlo method is a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. Monte Carlo Simulation predicts a set of outcomes based on an estimated range of values versus a set of fixed input values.</p>
+<h3 id="3.2.-Classical-Method:-Monte-Carlo">3.2. Classical Method: Monte Carlo<a class="anchor-link" href="#3.2.-Classical-Method:-Monte-Carlo">&#182;</a></h3><p>The Monte Carlo method is a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. Monte Carlo Simulation predicts a set of outcomes based on an estimated range of values versus a set of fixed input values.</p>
 <p>In other words, a Monte Carlo Simulation builds a model of possible results by leveraging a probability distribution, such as a uniform or normal distribution, for any variable that has inherent uncertainty. It, then, recalculates the results over and over, each time using a different set of random numbers between the minimum and maximum values. In a typical Monte Carlo experiment, this exercise can be repeated thousands of times to produce a large number of likely outcomes.</p>
 <p>Several combinations of different scenarios are tested and the result of each scenario is analyzed. Therefore it’s slow and expensive.</p>
+<!-- -------
 
+# TODO: include the information about the scaling of the error in the montecarlo method
+
+------- -->
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Grover's-Algorithm">Grover's Algorithm<a class="anchor-link" href="#Grover's-Algorithm">&#182;</a></h3><p>In this section, we introduce Grover's algorithm and how it can be used to solve unstructured search problems. This algorithm can speed up an unstructured search problem quadratically.</p>
+<!-- ### 3.3. QAE
+
+------------
+
+# TODO: include section
+
+You need to include a section that talks about quantum aplitude estimation as the quantum algorithm you se to estimate the VaR. My suggestion is to include Grover and Quantum Fourier Transform as intermediate steps to explain the Quantum Amplitude Estimation.
+
+One good starting point can be:
+
+> QAE is one of the algortihms at the basis of the quantum revolution, it has the potential to achieve a quadratic speed up for most of the application that are nowadays solved hrough Montercalro Simulatioons. While Montecarlo simlation scales with $O(1/\sqrt{M})$ with M the number of samples, QAE achieve a scaling of $O(1/M)$, where $M$ are the quantum samples. AQE can be understood as a combination of Quantum Phase Estimation and Grover Algorithm.
+
+From this you can start to explain what you do to apply the QAE algorithm, i.e., you discuss the mapping of the problem in thw quantum Operator $A$, discuss about the operator $Q$, then how to map the uncertainty model in a quantum register (you already have that section in the ), how the problem of the expected loss is mapped in a quantum circuit (expected loss section) and so on
+
+------------ -->
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.3.-Grover's-Algorithm">3.3. Grover's Algorithm<a class="anchor-link" href="#3.3.-Grover's-Algorithm">&#182;</a></h3><p>In this section, we introduce Grover's algorithm and how it can be used to solve unstructured search problems. This algorithm can speed up an unstructured search problem quadratically.</p>
 <p>Suppose you are given a large list of $N$ items. Among these items there is one item with a unique property that we wish to locate; we will call this one the winner $w$.</p>
 <p>To find the the marked item using classical computation, one would have to check on average ${N\over2}$ of these boxes, and in the worst case, all $N$ of them. On a quantum computer, however, we can find the marked item in roughly $√N$ steps with Grover's algorithm.</p>
 <p>Before looking at the list of items, we have no idea where the marked item is. Therefore, any guess of its location is as good as any other, which can be expressed in terms of a uniform superposition:</p>
@@ -14748,43 +14768,11 @@ $\{|x⟩\}$, this superposition would collapse, according to the fifth quantum l
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Algorithm-Steps">Algorithm Steps<a class="anchor-link" href="#Algorithm-Steps">&#182;</a></h4><h5 id="Step-1">Step 1<a class="anchor-link" href="#Step-1">&#182;</a></h5><p>The amplitude amplification [6] procedure starts out in the uniform superposition $|s⟩$, which is easily constructed from:</p>
+<h4 id="3.3.1.-Algorithm-Steps">3.3.1. Algorithm Steps<a class="anchor-link" href="#3.3.1.-Algorithm-Steps">&#182;</a></h4><h5 id="3.3.1.1.-Step-1---Probabilities-by-Set">3.3.1.1. Step 1 - Probabilities by Set<a class="anchor-link" href="#3.3.1.1.-Step-1---Probabilities-by-Set">&#182;</a></h5><p>The amplitude amplification [6] procedure starts out in the uniform superposition $|s⟩$, which is easily constructed from:</p>
 $$ |s\rangle = H^{\otimes n} | 0 \rangle^n $$
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Vector origin location</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Directional vectors</span>
-<span class="n">U</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">]</span>
-
-<span class="c1"># Draw graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 1 - Vector Space&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;|w⟩&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;|s`⟩&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c_off</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="s1">&#39;θ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="s1">&#39;|s⟩ = |Ψ₀⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -14822,27 +14810,7 @@ $$ |s\rangle = \sin \theta | w \rangle + \cos \theta | s' \rangle $$<p>Where</p>
 $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Draw graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 1 - Probabilities&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">avg_amplitude</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -14883,45 +14851,11 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Step-2">Step 2<a class="anchor-link" href="#Step-2">&#182;</a></h5><p>We apply the oracle reflection $U_f$ to the state $|s⟩$:</p>
+<h5 id="3.3.1.2.-Step-2---Oracle-and-Phase-Inversion">3.3.1.2. Step 2 - Oracle and Phase Inversion<a class="anchor-link" href="#3.3.1.2.-Step-2---Oracle-and-Phase-Inversion">&#182;</a></h5><p>We apply the oracle reflection $U_f$ to the state $|s⟩$:</p>
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Vector origin location</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Directional vectors</span>
-<span class="n">U</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">]</span>
-
-<span class="c1"># Draw graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 2 - Oracle Reflection&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;|w⟩&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c_off</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c_off</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;θ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;|s`⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;|s⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;|Ψ_t⟩ ≥ U_ω|Ψ_t⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -14958,36 +14892,7 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to flag set by inverting its value</span>
-<span class="k">def</span> <span class="nf">invert_phase</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="n">inverted</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)):</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="n">p</span> <span class="k">if</span> <span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">p</span>
-        <span class="n">inverted</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">inverted</span>
-
-<span class="c1"># Draw graph</span>
-<span class="n">new_amplitude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;≤ </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_amplitude</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 2 - Inverted Phase&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">invert_phase</span><span class="p">(</span><span class="n">winner</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">invert_phase</span><span class="p">(</span><span class="n">winner</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">winner</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">new_amplitude</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15028,46 +14933,12 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Step-3">Step 3<a class="anchor-link" href="#Step-3">&#182;</a></h5><p>We now apply an additional reflection $(U_s)$  about the state</p>
+<h5 id="3.3.1.3.-Step-3---Reflection-and-Rotation">3.3.1.3. Step 3 - Reflection and Rotation<a class="anchor-link" href="#3.3.1.3.-Step-3---Reflection-and-Rotation">&#182;</a></h5><p>We now apply an additional reflection $(U_s)$  about the state</p>
 $$ |s\rangle:U_s = 2|s\rangle\langle s| - \mathbb{1} $$<p>This transformation maps the state to $ U_s U_f| s \rangle $ and completes the transformation.</p>
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Vector origin location</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># Directional vectors</span>
-<span class="n">U</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>  
-<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">]</span>
-
-<span class="c1"># Draw graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 3 - Additional Reflection&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;|w⟩&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c_off</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c_off</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;2θ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;|s`⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="s1">&#39;|s⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="s1">&#39;U_s|Ψ_t⟩⟩ ≥ U_s U_ω|Ψ_t⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15104,37 +14975,7 @@ $$ |s\rangle:U_s = 2|s\rangle\langle s| - \mathbb{1} $$<p>This transformation ma
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to amplify winner item</span>
-<span class="k">def</span> <span class="nf">amplify_winner</span><span class="p">(</span><span class="n">l1</span><span class="p">):</span>
-    <span class="n">amplified</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)):</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="k">if</span> <span class="n">l1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="mi">1</span>
-        <span class="n">amplified</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">amplified</span>
-
-<span class="c1"># Draw graph</span>
-<span class="n">new_amplitude</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Step 3 - Rotate Phase&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">amplify_winner</span><span class="p">(</span><span class="n">winner</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">amplify_winner</span><span class="p">(</span><span class="n">winner</span><span class="p">),</span> <span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grover</span><span class="p">)])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">new_amplitude</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">5.75</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="s1">&#39;|w⟩&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15186,7 +15027,7 @@ $$ | \psi_t \rangle = (U_s U_f)^t  | s \rangle $$<p><img src="assets/diagrams/gr
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Example---Search-with-Grover's-Algorithm">Example - Search with Grover's Algorithm<a class="anchor-link" href="#Example---Search-with-Grover's-Algorithm">&#182;</a></h5><p>The three stages of the 3-qubit Grover search algorithm: initialization, oracle, and amplification. [7]</p>
+<h4 id="3.3.2.1.-Grover's-Algorithm-Search-Implementation">3.3.2.1. Grover's Algorithm Search Implementation<a class="anchor-link" href="#3.3.2.1.-Grover's-Algorithm-Search-Implementation">&#182;</a></h4><p>The three stages of the 3-qubit Grover search algorithm: initialization, oracle, and amplification. [7]</p>
 <p><img src="assets/diagrams/grover-search.jpeg" alt="grover-search"></p>
 
 </div>
@@ -15195,7 +15036,7 @@ $$ | \psi_t \rangle = (U_s U_f)^t  | s \rangle $$<p><img src="assets/diagrams/gr
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Quantum-Fourier-Transform">Quantum Fourier Transform<a class="anchor-link" href="#Quantum-Fourier-Transform">&#182;</a></h4><p>The Fourier transform occurs in many different versions throughout classical computing, in areas ranging from signal processing to data compression to complexity theory. The quantum Fourier transform (QFT) is the quantum implementation of the discrete Fourier transform over the amplitudes of a wavefunction.</p>
+<h4 id="3.4.4.-Quantum-Fourier-Transform">3.4.4. Quantum Fourier Transform<a class="anchor-link" href="#3.4.4.-Quantum-Fourier-Transform">&#182;</a></h4><p>The Fourier transform occurs in many different versions throughout classical computing, in areas ranging from signal processing to data compression to complexity theory. The quantum Fourier transform (QFT) is the quantum implementation of the discrete Fourier transform over the amplitudes of a wavefunction.</p>
 <p>The discrete Fourier transform acts on a vector $(x0,...,x_{N−1})$ and maps it to the vector $(y0,...,y_{N−1})$ according to the formula:</p>
 $$ y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_j\omega_N^{jk} $$<p>where: $ \omega_N^{jk} = e^{2\pi i \frac{jk}{N}} $</p>
 <p>Similarly, the quantum Fourier transform acts on a quantum state $ \vert X\rangle = \sum_{j=0}^{N-1} x_j \vert j \rangle $ and maps it to the quantum state $ \vert Y\rangle = \sum_{k=0}^{N-1} y_k \vert k \rangle $ according to the formula:</p>
@@ -15204,7 +15045,7 @@ $$ y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_j\omega_N^{jk} $$<p>We see that onl
 $$ U_{QFT} = \frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \sum_{k=0}^{N-1} \omega_N^{jk} \vert k \rangle \langle j \vert $$<p>The quantum Fourier transform (QFT) transforms between two bases, the computational (Z) basis, and the Fourier basis. The H-gate is the single-qubit QFT, and it transforms between the Z-basis states $|0⟩$ and $|1⟩$ to the X-basis states $|+⟩$
  and $|−⟩$. In the same way, all multi-qubit states in the computational basis have corresponding states in the Fourier basis. The QFT is simply the function that transforms between these bases.</p>
 $$ |\text{State in Computational Basis}\rangle \quad \xrightarrow[]{\text{QFT}} \quad |\text{State in Fourier Basis}\rangle $$<p>(We note states in the Fourier basis using the tilde (~)).</p>
-<h5 id="Counting-in-the-Fourier-basis:">Counting in the Fourier basis:<a class="anchor-link" href="#Counting-in-the-Fourier-basis:">&#182;</a></h5><p>In the computational basis, we store numbers in binary using the states $|0⟩$ and $|1⟩$:</p>
+<h5 id="3.4.4.1.-Counting-in-the-Fourier-basis:">3.4.4.1. Counting in the Fourier basis:<a class="anchor-link" href="#3.4.4.1.-Counting-in-the-Fourier-basis:">&#182;</a></h5><p>In the computational basis, we store numbers in binary using the states $|0⟩$ and $|1⟩$:</p>
 <p><img src="assets/plot/zbasis-counting.gif" alt="z-basis"></p>
 <p>The frequency with which the different qubits change; the leftmost qubit flips with every increment in the number, the next with every 2 increments, the third with every 4 increments, and so on. In the Fourier basis, we store numbers using different rotations around the Z-axis:</p>
 <p><img src="assets/plot/fourierbasis-counting.gif" alt="fourier-basis"></p>
@@ -15217,7 +15058,15 @@ $$ |\text{State in Computational Basis}\rangle \quad \xrightarrow[]{\text{QFT}} 
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h2><p>We went on to show how our algorithm can be applied to the task of pricing an asset using real quantum hardware. We chose the simple model of a treasury bill whose value depends only on the interest rate. This simple experiment on 5 qubits confirmed the theoretical convergence rate of our algorithm and underlines its potential advantage compared to classical Monte Carlo methods.</p>
+<h2 id="4.-Results">4. Results<a class="anchor-link" href="#4.-Results">&#182;</a></h2><!-- ------
+
+# TODO: Move to methods
+
+most of the text that is here I mude bst moved in methods. It is not clear to me which are the results. Here you need to show your results, i.e. the value at risk obtained the plot of probability distribution of the two assets, the results fo the simulation with the noise discuss the difference between the simulation with an without noise and also the comparison with the montecarlo simulation
+
+------ -->
+
+<p>We went on to show how QAE can be applied to the task of pricing an asset using real quantum hardware. We chose the simple model of a treasury bill whose value depends only on the interest rate. This simple experiment on 5 qubits confirmed the theoretical convergence rate of QAE and underlines its potential advantage compared to classical Monte Carlo methods.</p>
 <p>In order to further demonstrate the capabilities of our algorithm, we used classical simulations of quantum hardware to show that it can also be applied to speed up the computation of risk measures of a simple two-asset portfolio. Nevertheless, we notice that to achieve quantum advantage in a real-world scenario, the quality of current quantum hardware needs to be improved. Errors arising from the limited coherence time and cross-talk when measuring the states of qubits need to be substantially suppressed. Furthermore, the number of qubits must be increased.</p>
 <p>However, the current pace of advances in research directed at improving both quantum hardware and quantum algorithms makes us optimistic that real quantum advantage in risk analysis can be achieved in the future.</p>
 
@@ -15227,7 +15076,7 @@ $$ |\text{State in Computational Basis}\rangle \quad \xrightarrow[]{\text{QFT}} 
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Uncertainty-Model">Uncertainty Model<a class="anchor-link" href="#Uncertainty-Model">&#182;</a></h3><p>We now construct a circuit that loads the uncertainty model. This can be achieved by creating a quantum state in a register of $n_z$ qubits that represents $Z$ following a standard normal distribution. This state is then used to control single qubit Y-rotations on a second qubit register of $K$ qubits, where a $|1\rangle$ state of qubit $k$ represents the default event of asset $k$. [3]</p>
+<h3 id="4.1.-Uncertainty-Model">4.1. Uncertainty Model<a class="anchor-link" href="#4.1.-Uncertainty-Model">&#182;</a></h3><p>We now construct a circuit that loads the uncertainty model. This can be achieved by creating a quantum state in a register of $n_z$ qubits that represents $Z$ following a standard normal distribution. This state is then used to control single qubit Y-rotations on a second qubit register of $K$ qubits, where a $|1\rangle$ state of qubit $k$ represents the default event of asset $k$. [3]</p>
 <p>The resulting quantum state can be written as</p>
 <p>$ |\Psi\rangle = \sum_{i=0}^{2^{n_z}-1} \sqrt{p_z^i} |z_i \rangle \bigotimes_{k=1}^K
 \left( \sqrt{1 - p_k(z_i)}|0\rangle + \sqrt{p_k(z_i)}|1\rangle\right) $</p>
@@ -15235,22 +15084,7 @@ $$ |\text{State in Computational Basis}\rangle \quad \xrightarrow[]{\text{QFT}} 
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">GCI</span><span class="p">(</span><span class="n">n_z</span><span class="p">,</span> <span class="n">z_max</span><span class="p">,</span> <span class="n">p_zeros</span><span class="p">,</span> <span class="n">rhos</span><span class="p">)</span>
-<span class="n">u</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15298,69 +15132,7 @@ q_3: ┤3      ├
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Execute circuit and analyze results</span>
-<span class="n">exe</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;statevector_simulator&quot;</span><span class="p">))</span>
-
-<span class="c1"># Initialize variables</span>
-<span class="n">p_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">n_z</span><span class="p">)</span>
-<span class="n">p_default</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">probabilities</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">num_qubits</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">num_qubits</span>
-
-<span class="c1"># Analyze uncertainty circuit and determine exact solutions</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">exe</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">()</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-    <span class="c1"># Get binary representation</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;{0:0</span><span class="si">%s</span><span class="s2">b}&quot;</span> <span class="o">%</span> <span class="n">num_qubits</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="c1"># Extract value of Z and corresponding probability</span>
-    <span class="n">i_normal</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="n">n_z</span><span class="p">:],</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">p_z</span><span class="p">[</span><span class="n">i_normal</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob</span>
-    <span class="c1"># Determine overall default probability for k</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">K</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
-            <span class="n">p_default</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">prob</span>
-            <span class="n">loss</span> <span class="o">+=</span> <span class="n">lgd</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-    <span class="n">values</span> <span class="o">+=</span> <span class="p">[</span><span class="n">loss</span><span class="p">]</span>
-    <span class="n">probabilities</span> <span class="o">+=</span> <span class="p">[</span><span class="n">prob</span><span class="p">]</span>
-
-<span class="c1"># Calculate results</span>
-<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="n">probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span>
-<span class="n">losses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">losses</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">losses</span><span class="p">):</span>
-    <span class="n">pdf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">probabilities</span><span class="p">[</span><span class="n">values</span> <span class="o">==</span> <span class="n">v</span><span class="p">])</span>
-<span class="n">expected_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)</span>
-<span class="n">cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
-<span class="n">i_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cdf</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
-<span class="n">exact_var</span> <span class="o">=</span> <span class="n">losses</span><span class="p">[</span><span class="n">i_var</span><span class="p">]</span>
-<span class="n">exact_cvar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pdf</span><span class="p">[(</span><span class="n">i_var</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:],</span> <span class="n">losses</span><span class="p">[(</span><span class="n">i_var</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:])</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pdf</span><span class="p">[(</span><span class="n">i_var</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:])</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P[L &lt;= VaR[L]]:                    </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">[</span><span class="n">exact_var</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected Loss E[L]:                </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">expected_loss</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value at Risk VaR[L]:              </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exact_var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conditional Value at Risk CVaR[L]: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exact_cvar</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15376,7 +15148,7 @@ q_3: ┤3      ├
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>P[L &lt;= VaR[L]]:                    0.9591
+<pre>P[L] &lt;= VaR[L]]:                   0.9591
 Expected Loss E[L]:                0.6409
 Value at Risk VaR[L]:              2.0000
 Conditional Value at Risk CVaR[L]: 3.0000
@@ -15392,35 +15164,10 @@ Conditional Value at Risk CVaR[L]: 3.0000
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Loss-Distribution">Loss Distribution<a class="anchor-link" href="#Loss-Distribution">&#182;</a></h5>
+<h5 id="4.1.1.-Loss-Distribution">4.1.1. Loss Distribution<a class="anchor-link" href="#4.1.1.-Loss-Distribution">&#182;</a></h5>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot loss PDF, expected loss, var, and cvar</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">expected_loss</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E[L]&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">exact_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;VaR(L)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">exact_cvar</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashdot&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CVaR(L)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Loss L ($)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability (%)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Loss Distribution&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15452,31 +15199,10 @@ Conditional Value at Risk CVaR[L]: 3.0000
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Z-Distribution">Z Distribution<a class="anchor-link" href="#Z-Distribution">&#182;</a></h5>
+<h5 id="4.1.2.-Z-Distribution">4.1.2. Z Distribution<a class="anchor-link" href="#4.1.2.-Z-Distribution">&#182;</a></h5>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot results for Z</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z_values</span><span class="p">,</span> <span class="n">p_z</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Z value&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability (%)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Z Distribution&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15508,31 +15234,10 @@ Conditional Value at Risk CVaR[L]: 3.0000
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Individual-Default-Probabilities">Individual Default Probabilities<a class="anchor-link" href="#Individual-Default-Probabilities">&#182;</a></h5>
+<h5 id="4.1.3.-Individual-Default-Probabilities">4.1.3. Individual Default Probabilities<a class="anchor-link" href="#4.1.3.-Individual-Default-Probabilities">&#182;</a></h5>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot results for default probabilities</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="n">p_default</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_on</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Asset&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;probability (%)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Individual Default Probabilities&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">title_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">label_size</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15564,7 +15269,7 @@ Conditional Value at Risk CVaR[L]: 3.0000
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Expected-Loss">Expected Loss<a class="anchor-link" href="#Expected-Loss">&#182;</a></h3><p>To estimate the expected loss, we first apply a weighted sum operator to sum up individual losses to total loss:</p>
+<h3 id="4.2.-Expected-Loss">4.2. Expected Loss<a class="anchor-link" href="#4.2.-Expected-Loss">&#182;</a></h3><p>To estimate the expected loss, we first apply a weighted sum operator to sum up individual losses to total loss:</p>
 $$ \mathcal{S}: |x_1, ..., x_K \rangle_K |0\rangle_{n_S} \mapsto |x_1, ..., x_K \rangle_K |\lambda_1x_1 + ... + \lambda_K x_K\rangle_{n_S} $$<p>The required number of qubits to represent the result is given by</p>
 $$ n_s = \lfloor \log_2( \lambda_1 + ... + \lambda_K ) \rfloor + 1 $$<p>Once we have the total loss distribution in a quantum register, we can use the techniques described [4] to map a total loss $ L \in \{0, ..., 2^{n_s}-1\} $ to the amplitude of an objective qubit by an operator</p>
 $$ | L \rangle_{n_s}|0\rangle \mapsto
@@ -15572,33 +15277,7 @@ $$ | L \rangle_{n_s}|0\rangle \mapsto
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agg</span> <span class="o">=</span> <span class="n">WeightedAdder</span><span class="p">(</span><span class="n">n_z</span> <span class="o">+</span> <span class="n">K</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_z</span> <span class="o">+</span> <span class="n">lgd</span><span class="p">)</span>
-<span class="n">objective</span> <span class="o">=</span> <span class="n">LinearAmplitudeFunction</span><span class="p">(</span>
-    <span class="c1"># Add Z qubits with weight/loss 0</span>
-    <span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span>
-    <span class="c1"># Define linear objective function</span>
-    <span class="n">slope</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="n">offset</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-    <span class="n">image</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lgd</span><span class="p">)),</span>
-    <span class="n">rescaling_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
-    <span class="n">breakpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-    <span class="c1"># This is the Max value that can be reached by the qubit register (will not always be reached)</span>
-    <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput  celltag_hide-input">
 
 </div>
 <div class="jp-Cell-inputWrapper">
@@ -15608,37 +15287,7 @@ $$ | L \rangle_{n_s}|0\rangle \mapsto
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the registers for convenience and readability</span>
-<span class="n">qr_state</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">)</span>
-<span class="n">qr_sum</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">)</span>
-<span class="n">qr_carry</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_carry_qubits</span><span class="p">,</span> <span class="s2">&quot;carry&quot;</span><span class="p">)</span>
-<span class="n">qr_obj</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;objective&quot;</span><span class="p">)</span>
-<span class="c1"># Define the circuit</span>
-<span class="n">state_preparation</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr_state</span><span class="p">,</span> <span class="n">qr_obj</span><span class="p">,</span> <span class="n">qr_sum</span><span class="p">,</span> <span class="n">qr_carry</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="c1"># Load the random variable</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">to_gate</span><span class="p">(),</span> <span class="n">qr_state</span><span class="p">)</span>
-<span class="c1"># Aggregate</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">to_gate</span><span class="p">(),</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-<span class="c1"># Linear objective function</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">objective</span><span class="o">.</span><span class="n">to_gate</span><span class="p">(),</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_obj</span><span class="p">[:])</span>
-<span class="c1"># Uncompute aggregation</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">to_gate</span><span class="p">()</span><span class="o">.</span><span class="n">inverse</span><span class="p">(),</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-<span class="c1"># Draw the circuit</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15688,36 +15337,7 @@ objective: ─────────┤        ├┤2   ├┤           ├
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exe</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;statevector_simulator&quot;</span><span class="p">))</span>
-<span class="c1"># Evaluate resulting statevector</span>
-<span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">exe</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">()</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;{0:0</span><span class="si">%s</span><span class="s2">b}&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">prob</span> <span class="o">&gt;</span> <span class="mf">1e-6</span> <span class="ow">and</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">+=</span> <span class="n">prob</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact Expected Loss:   </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">expected_loss</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact Operator Value:  </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mapped Operator value: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">objective</span><span class="o">.</span><span class="n">post_processing</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15752,31 +15372,7 @@ Mapped Operator value: 0.6639
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qi</span> <span class="o">=</span> <span class="n">QuantumInstance</span><span class="p">(</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">),</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">EstimationProblem</span><span class="p">(</span><span class="n">state_preparation</span><span class="o">=</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">objective_qubits</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)],</span> <span class="n">post_processing</span><span class="o">=</span><span class="n">objective</span><span class="o">.</span><span class="n">post_processing</span><span class="p">)</span>
-<span class="c1"># Construct amplitude estimation, Set target precision and confidence level</span>
-<span class="n">ae</span> <span class="o">=</span> <span class="n">IterativeAmplitudeEstimation</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">quantum_instance</span><span class="o">=</span><span class="n">qi</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">ae</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
-<span class="n">conf_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">confidence_interval_processed</span><span class="p">)</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact value:    </span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">expected_loss</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated value:</span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">estimation_processed</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confidence interval: </span><span class="se">\t</span><span class="s2">[</span><span class="si">%.4f</span><span class="s2">, </span><span class="si">%.4f</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">conf_int</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15793,8 +15389,8 @@ Mapped Operator value: 0.6639
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Exact value:    	0.6409
-Estimated value:	0.6697
-Confidence interval: 	[0.6088, 0.7306]
+Estimated value:	0.6793
+Confidence interval: 	[0.6241, 0.7345]
 </pre>
 </div>
 </div>
@@ -15807,7 +15403,7 @@ Confidence interval: 	[0.6088, 0.7306]
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Cumulative-Distribution-Function">Cumulative Distribution Function<a class="anchor-link" href="#Cumulative-Distribution-Function">&#182;</a></h3><p>Instead of the expected loss (which could also be estimated efficiently using classical techniques) we now estimate the cumulative distribution function (CDF) of the loss. Classically, this either involves evaluating all the possible combinations of defaulting assets, or many classical samples in a Monte Carlo simulation. Algorithms based on QAE have the potential to significantly speed up this analysis in the future.</p>
+<h3 id="4.3.-Cumulative-Distribution-Function">4.3. Cumulative Distribution Function<a class="anchor-link" href="#4.3.-Cumulative-Distribution-Function">&#182;</a></h3><p>Instead of the expected loss (which could also be estimated efficiently using classical techniques) we now estimate the cumulative distribution function (CDF) of the loss. Classically, this either involves evaluating all the possible combinations of defaulting assets, or many classical samples in a Monte Carlo simulation. Algorithms based on QAE have the potential to significantly speed up this analysis in the future.</p>
 <p>To estimate the CDF, i.e., the probability $\mathbb{P}[L \leq x]$, we again apply $\mathcal{S}$ to compute the total loss, and then apply a comparator that for a given value $x$ acts as</p>
 $$\begin{split} \mathcal{C}: |L\rangle_n|0&gt; \mapsto
 \begin{cases}
@@ -15821,24 +15417,7 @@ $$\begin{split} \mathcal{C}: |L\rangle_n|0&gt; \mapsto
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set x value to estimate the CDF</span>
-<span class="n">x_eval</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">comparator</span> <span class="o">=</span> <span class="n">IntegerComparator</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span> <span class="n">x_eval</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geq</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">comparator</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15872,40 +15451,7 @@ compare: ┤2     ├
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs   celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_cdf_circuit</span><span class="p">(</span><span class="n">x_eval</span><span class="p">):</span>
-    <span class="c1"># Define the registers for convenience and readability</span>
-    <span class="n">qr_state</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">)</span>
-    <span class="n">qr_sum</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">)</span>
-    <span class="n">qr_carry</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_carry_qubits</span><span class="p">,</span> <span class="s2">&quot;carry&quot;</span><span class="p">)</span>
-    <span class="n">qr_obj</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;objective&quot;</span><span class="p">)</span>
-    <span class="c1"># Define the circuit</span>
-    <span class="n">state_preparation</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr_state</span><span class="p">,</span> <span class="n">qr_obj</span><span class="p">,</span> <span class="n">qr_sum</span><span class="p">,</span> <span class="n">qr_carry</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-    <span class="c1"># Load the random variable</span>
-    <span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">qr_state</span><span class="p">)</span>
-    <span class="c1"># Aggregate</span>
-    <span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="p">,</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-    <span class="c1"># Comparator objective function</span>
-    <span class="n">comparator</span> <span class="o">=</span> <span class="n">IntegerComparator</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span> <span class="n">x_eval</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">geq</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comparator</span><span class="p">,</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_obj</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-    <span class="c1"># Uncompute aggregation</span>
-    <span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">inverse</span><span class="p">(),</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-    <span class="k">return</span> <span class="n">state_preparation</span>
-
-<span class="n">state_preparation</span> <span class="o">=</span> <span class="n">get_cdf_circuit</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput  celltag_hide-input">
 
 </div>
 <div class="jp-Cell-inputWrapper">
@@ -15915,22 +15461,7 @@ compare: ┤2     ├
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exe</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;statevector_simulator&quot;</span><span class="p">))</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -15972,34 +15503,7 @@ objective: ─────────┤        ├┤2     ├┤           �
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Evaluate resulting statevector</span>
-<span class="n">var_prob</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">exe</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">()</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;{0:0</span><span class="si">%s</span><span class="s2">b}&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">prob</span> <span class="o">&gt;</span> <span class="mf">1e-6</span> <span class="ow">and</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
-        <span class="n">var_prob</span> <span class="o">+=</span> <span class="n">prob</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operator CDF(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_eval</span> <span class="o">+</span> <span class="s2">&quot; = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">var_prob</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact    CDF(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_eval</span> <span class="o">+</span> <span class="s2">&quot; = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">[</span><span class="n">x_eval</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16033,31 +15537,7 @@ Exact    CDF(2) = 0.9591
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qi</span> <span class="o">=</span> <span class="n">QuantumInstance</span><span class="p">(</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">),</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">EstimationProblem</span><span class="p">(</span><span class="n">state_preparation</span><span class="o">=</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">objective_qubits</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)])</span>
-<span class="c1"># Construct amplitude estimation, set target precision and confidence level</span>
-<span class="n">ae_cdf</span> <span class="o">=</span> <span class="n">IterativeAmplitudeEstimation</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">quantum_instance</span><span class="o">=</span><span class="n">qi</span><span class="p">)</span>
-<span class="n">result_cdf</span> <span class="o">=</span> <span class="n">ae_cdf</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
-<span class="n">conf_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result_cdf</span><span class="o">.</span><span class="n">confidence_interval</span><span class="p">)</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact value:    </span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">[</span><span class="n">x_eval</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated value:</span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">result_cdf</span><span class="o">.</span><span class="n">estimation</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confidence interval: </span><span class="se">\t</span><span class="s2">[</span><span class="si">%.4f</span><span class="s2">, </span><span class="si">%.4f</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">conf_int</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16074,8 +15554,8 @@ Exact    CDF(2) = 0.9591
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Exact value:    	0.9591
-Estimated value:	0.9589
-Confidence interval: 	[0.9560, 0.9618]
+Estimated value:	0.9599
+Confidence interval: 	[0.9588, 0.9610]
 </pre>
 </div>
 </div>
@@ -16088,89 +15568,11 @@ Confidence interval: 	[0.9560, 0.9618]
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Value-at-Risk">Value at Risk<a class="anchor-link" href="#Value-at-Risk">&#182;</a></h3><p>In the following we use a bisection search and QAE to efficiently evaluate the CDF to estimate the value at risk.</p>
+<h3 id="4.4.-Value-at-Risk">4.4. Value at Risk<a class="anchor-link" href="#4.4.-Value-at-Risk">&#182;</a></h3><p>In the following we use a bisection search and QAE to efficiently evaluate the CDF to estimate the value at risk.</p>
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Construct amplitude estimation</span>
-<span class="k">def</span> <span class="nf">run_ae_for_cdf</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">simulator</span><span class="o">=</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">):</span>
-    <span class="n">state_preparation</span> <span class="o">=</span> <span class="n">get_cdf_circuit</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
-    <span class="n">qi</span> <span class="o">=</span> <span class="n">QuantumInstance</span><span class="p">(</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="n">simulator</span><span class="p">),</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">problem</span> <span class="o">=</span> <span class="n">EstimationProblem</span><span class="p">(</span><span class="n">state_preparation</span><span class="o">=</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">objective_qubits</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)])</span>
-    <span class="n">ae_var</span> <span class="o">=</span> <span class="n">IterativeAmplitudeEstimation</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">quantum_instance</span><span class="o">=</span><span class="n">qi</span><span class="p">)</span>
-    <span class="n">result_var</span> <span class="o">=</span> <span class="n">ae_var</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result_var</span><span class="o">.</span><span class="n">estimation</span>
-
-<span class="c1"># Check whether low and high values are given and evaluated them otherwise</span>
-<span class="k">def</span> <span class="nf">bisection_search</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">target_value</span><span class="p">,</span> <span class="n">low_level</span><span class="p">,</span> <span class="n">high_level</span><span class="p">,</span> <span class="n">low_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">high_value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;....................................................................&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; 🕵️‍♂️ Start bisection search for target value: </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">target_value</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;....................................................................&quot;</span><span class="p">)</span>
-    <span class="n">num_eval</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">low_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">low_value</span> <span class="o">=</span> <span class="n">objective</span><span class="p">(</span><span class="n">low_level</span><span class="p">)</span>
-        <span class="n">num_eval</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">high_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">high_value</span> <span class="o">=</span> <span class="n">objective</span><span class="p">(</span><span class="n">high_level</span><span class="p">)</span>
-        <span class="n">num_eval</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="c1"># Check if low_value already satisfies the condition</span>
-    <span class="k">if</span> <span class="n">low_value</span> <span class="o">&gt;</span> <span class="n">target_value</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="n">low_level</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">low_value</span><span class="p">,</span> <span class="s2">&quot;num_eval&quot;</span><span class="p">:</span> <span class="n">num_eval</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;returned low value&quot;</span><span class="p">}</span>
-    <span class="k">elif</span> <span class="n">low_value</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="n">low_level</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">low_value</span><span class="p">,</span> <span class="s2">&quot;num_eval&quot;</span><span class="p">:</span> <span class="n">num_eval</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">}</span>
-    <span class="c1"># Check if high_value is above target</span>
-    <span class="k">if</span> <span class="n">high_value</span> <span class="o">&lt;</span> <span class="n">target_value</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="n">high_level</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">high_value</span><span class="p">,</span> <span class="s2">&quot;num_eval&quot;</span><span class="p">:</span> <span class="n">num_eval</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;returned low value&quot;</span><span class="p">}</span>
-    <span class="k">elif</span> <span class="n">high_value</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="n">high_level</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">high_value</span><span class="p">,</span> <span class="s2">&quot;num_eval&quot;</span><span class="p">:</span> <span class="n">num_eval</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">}</span>
-    <span class="c1"># Perform bisection search until</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;low_level    low_value    level    value    high_level    high_value&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;....................................................................&quot;</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">high_level</span> <span class="o">-</span> <span class="n">low_level</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="n">high_level</span> <span class="o">+</span> <span class="n">low_level</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">))</span>
-        <span class="n">num_eval</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">objective</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">&quot;</span><span class="si">%2d</span><span class="s2">           </span><span class="si">%.3f</span><span class="s2">        </span><span class="si">%2d</span><span class="s2">       </span><span class="si">%.3f</span><span class="s2">    </span><span class="si">%2d</span><span class="s2">            </span><span class="si">%.3f</span><span class="s2">&quot;</span>
-            <span class="o">%</span> <span class="p">(</span><span class="n">low_level</span><span class="p">,</span> <span class="n">low_value</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">high_level</span><span class="p">,</span> <span class="n">high_value</span><span class="p">)</span>
-        <span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="n">target_value</span><span class="p">:</span>
-            <span class="n">high_level</span> <span class="o">=</span> <span class="n">level</span>
-            <span class="n">high_value</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">low_level</span> <span class="o">=</span> <span class="n">level</span>
-            <span class="n">low_value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;....................................................................&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; 🔚 Finished bisection search &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;....................................................................&quot;</span><span class="p">)</span>
-    <span class="c1"># Return high value after bisection search</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="n">high_level</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">high_value</span><span class="p">,</span> <span class="s2">&quot;num_eval&quot;</span><span class="p">:</span> <span class="n">num_eval</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">}</span>
-
-<span class="c1"># Run bisection search to determine VaR</span>
-<span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">run_ae_for_cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">bisection_result</span> <span class="o">=</span> <span class="n">bisection_search</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">losses</span><span class="p">),</span> <span class="n">low_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">var</span> <span class="o">=</span> <span class="n">bisection_result</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated Value at Risk: </span><span class="si">%2d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact Value at Risk:     </span><span class="si">%2d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exact_var</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated Probability:    </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">bisection_result</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact Probability:        </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">[</span><span class="n">exact_var</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16191,8 +15593,8 @@ Confidence interval: 	[0.9560, 0.9618]
 ....................................................................
 low_level    low_value    level    value    high_level    high_value
 ....................................................................
--1           0.000         1       0.752     3            1.000
- 1           0.752         2       0.958     3            1.000
+-1           0.000         1       0.753     3            1.000
+ 1           0.753         2       0.959     3            1.000
 ....................................................................
  🔚 Finished bisection search 
 ....................................................................
@@ -16201,7 +15603,7 @@ low_level    low_value    level    value    high_level    high_value
 
 Estimated Value at Risk:  2
 Exact Value at Risk:      2
-Estimated Probability:    0.958
+Estimated Probability:    0.959
 Exact Probability:        0.959
 </pre>
 </div>
@@ -16215,7 +15617,7 @@ Exact Probability:        0.959
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Conditional-Value-at-Risk">Conditional Value at Risk<a class="anchor-link" href="#Conditional-Value-at-Risk">&#182;</a></h3><p>Last, we compute the CVaR, i.e. the expected value of the loss conditional to it being larger than or equal to the VaR. To do so, we evaluate a piecewise linear objective function $f(L)$, dependent on the total loss $L$, that is given by</p>
+<h3 id="4.5-Conditional-Value-at-Risk">4.5 Conditional Value at Risk<a class="anchor-link" href="#4.5-Conditional-Value-at-Risk">&#182;</a></h3><p>Last, we compute the CVaR, i.e. the expected value of the loss conditional to it being larger than or equal to the VaR. To do so, we evaluate a piecewise linear objective function $f(L)$, dependent on the total loss $L$, that is given by</p>
 $$\begin{split}f(L) = \begin{cases}
 0 &amp; \text{if}\quad L \leq VaR \\
 L &amp; \text{if}\quad L &gt; VaR.
@@ -16223,31 +15625,7 @@ L &amp; \text{if}\quad L &gt; VaR.
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cvar_objective</span> <span class="o">=</span> <span class="n">LinearAmplitudeFunction</span><span class="p">(</span>
-    <span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="c1"># Subtract VaR and add it later to the estimate</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">image</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">var</span><span class="p">),</span>
-    <span class="n">rescaling_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
-    <span class="n">breakpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">var</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">cvar_objective</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16265,11 +15643,11 @@ L &amp; \text{if}\quad L &gt; VaR.
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">        ┌────┐
-q411_0: ┤0   ├
+q479_0: ┤0   ├
         │    │
-q411_1: ┤1   ├
+q479_1: ┤1   ├
         │    │
-  q412: ┤2 F ├
+  q480: ┤2 F ├
         │    │
   a4_0: ┤3   ├
         │    │
@@ -16283,36 +15661,7 @@ q411_1: ┤1   ├
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the registers for convenience and readability</span>
-<span class="n">qr_state</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">)</span>
-<span class="n">qr_sum</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_sum_qubits</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">)</span>
-<span class="n">qr_carry</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">num_carry_qubits</span><span class="p">,</span> <span class="s2">&quot;carry&quot;</span><span class="p">)</span>
-<span class="n">qr_obj</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;objective&quot;</span><span class="p">)</span>
-<span class="n">qr_work</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">cvar_objective</span><span class="o">.</span><span class="n">num_ancillas</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">qr_carry</span><span class="p">),</span> <span class="s2">&quot;work&quot;</span><span class="p">)</span>
-<span class="c1"># Define the circuit</span>
-<span class="n">state_preparation</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr_state</span><span class="p">,</span> <span class="n">qr_obj</span><span class="p">,</span> <span class="n">qr_sum</span><span class="p">,</span> <span class="n">qr_carry</span><span class="p">,</span> <span class="n">qr_work</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
-<span class="c1"># Load the random variable</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">qr_state</span><span class="p">)</span>
-<span class="c1"># Aggregate</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="p">,</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-<span class="c1"># Linear objective function</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cvar_objective</span><span class="p">,</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_obj</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_work</span><span class="p">[:])</span>
-<span class="c1"># Uncompute aggregation</span>
-<span class="n">state_preparation</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agg</span><span class="o">.</span><span class="n">inverse</span><span class="p">(),</span> <span class="n">qr_state</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_sum</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">qr_carry</span><span class="p">[:])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16330,7 +15679,7 @@ q411_1: ┤1   ├
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;qiskit.circuit.instructionset.InstructionSet at 0x11113f780&gt;</pre>
+<pre>&lt;qiskit.circuit.instructionset.InstructionSet at 0x10afc3500&gt;</pre>
 </div>
 
 </div>
@@ -16347,41 +15696,7 @@ q411_1: ┤1   ├
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exe</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">state_preparation</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;statevector_simulator&quot;</span><span class="p">))</span>
-<span class="c1"># Evaluate resulting statevector</span>
-<span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">exe</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">()</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-    <span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;{0:0</span><span class="si">%s</span><span class="s2">b}&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="o">-</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">prob</span> <span class="o">&gt;</span> <span class="mf">1e-6</span> <span class="ow">and</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
-        <span class="n">value</span> <span class="o">+=</span> <span class="n">prob</span>
-
-<span class="c1"># Normalize and add VaR to estimate</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">cvar_objective</span><span class="o">.</span><span class="n">post_processing</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">bisection_result</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="n">d</span> <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
-<span class="n">normalized_value</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">var</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated CVaR: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">normalized_value</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact CVaR:     </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exact_cvar</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16397,7 +15712,7 @@ q411_1: ┤1   ├
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Estimated CVaR: 3.2605
+<pre>Estimated CVaR: 3.2766
 Exact CVaR:     3.0000
 </pre>
 </div>
@@ -16415,35 +15730,7 @@ Exact CVaR:     3.0000
 
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_hide-input">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qi</span> <span class="o">=</span> <span class="n">QuantumInstance</span><span class="p">(</span><span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s2">&quot;aer_simulator&quot;</span><span class="p">),</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">EstimationProblem</span><span class="p">(</span>
-    <span class="n">state_preparation</span><span class="o">=</span><span class="n">state_preparation</span><span class="p">,</span>
-    <span class="n">objective_qubits</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">qr_state</span><span class="p">)],</span>
-    <span class="n">post_processing</span><span class="o">=</span><span class="n">cvar_objective</span><span class="o">.</span><span class="n">post_processing</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="c1"># Construct amplitude estimation, set target precision and confidence level</span>
-<span class="n">ae_cvar</span> <span class="o">=</span> <span class="n">IterativeAmplitudeEstimation</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">quantum_instance</span><span class="o">=</span><span class="n">qi</span><span class="p">)</span>
-<span class="n">result_cvar</span> <span class="o">=</span> <span class="n">ae_cvar</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">bisection_result</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">result_cvar</span><span class="o">.</span><span class="n">estimation_processed</span> <span class="o">/</span> <span class="n">d</span> <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exact CVaR:    </span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exact_cvar</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated CVaR:</span><span class="se">\t</span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">var</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_hide-input">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
@@ -16460,7 +15747,7 @@ Exact CVaR:     3.0000
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Exact CVaR:    	3.0000
-Estimated CVaR:	3.3020
+Estimated CVaR:	3.2959
 </pre>
 </div>
 </div>
@@ -16473,7 +15760,7 @@ Estimated CVaR:	3.3020
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>By now, most people have heard that quantum computing is a revolutionary technology that leverages the bizarre characteristics of quantum mechanics to solve certain problems faster than regular computers can. Those problems range from the worlds of mathematics to retail business, and physics to finance.</p>
+<h2 id="5.-Conclusions">5. Conclusions<a class="anchor-link" href="#5.-Conclusions">&#182;</a></h2><p>By now, most people have heard that quantum computing is a revolutionary technology that leverages the bizarre characteristics of quantum mechanics to solve certain problems faster than regular computers can. Those problems range from the worlds of mathematics to retail business, and physics to finance.</p>
 <p>But, as we have seen this year, Quantum computers are exceedingly difficult to engineer, build and program. As a result, they are crippled by errors in the form of noise, faults and loss of quantum coherence.</p>
 <p>While classical computers are also affected by various sources of errors, these errors can be corrected with a modest amount of extra storage and logic. Quantum error­ correction schemes do exist but consume such a large number of qubits (quantum bits) that relatively few qubits remain for actual computation. So when only a couple of qubits are required it could be feasible, but when the number required increases the computing is unviable.   That reduces the size of the computing task to a tiny fraction of what could run on defect-­free hardware.</p>
 <p>So, all in all, the application of this quantum algorithm (or quantum computing in general) is not feasible due to the noise and the quantity of qubits required.</p>
@@ -16484,14 +15771,15 @@ Estimated CVaR:	3.3020
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<h2 id="6.-References">6. References<a class="anchor-link" href="#6.-References">&#182;</a></h2><ul>
 <li>[1] Purpose of Credit Risk Analysis (<a href="https://corporatefinanceinstitute.com/resources/knowledge/credit/purpose-of-credit-risk-analysis/">corporatefinanceinstitute.com</a>)</li>
 <li>[2] How Quantum Computing Could Change Financial Services (<a href="https://www.mckinsey.com/industries/financial-services/our-insights/how-quantum-computing-could-change-financial-services">mckinsey.com</a>)</li>
 <li>[3] Credit Risk Analysis (<a href="https://qiskit.org/documentation/finance/tutorials/09_credit_risk_analysis.html">qiskit</a>)</li>
 <li>[4] Quantum Risk Analysis. Stefan Woerner, Daniel J. Egger. (2019) (<a href="https://www.nature.com/articles/s41534-019-0130-6">nature</a>)</li>
-<li>[5] Credit Risk Analysis using Quantum Computers. Egger et al. (2019) [Egger2019] (<a href="https://arxiv.org/abs/1907.03044">arxiv.org</a>)</li>
-<li>[6] Quantum Amplitude Amplification and Estimation. Gilles Brassard et al. (<a href="http://arxiv.org/abs/quant-ph/0005055">arxiv.org</a>)</li>
-<li>[7] The three stages of the 3-qubit Grover search algorithm (<a href="https://scx2.b-cdn.net/gfx/news/2018/groversearch.jpg">phys.org</a>)</li>
+<li>[5] Credit Risk Analysis using Quantum Computers. Egger et al. (2019) (<a href="https://arxiv.org/abs/1907.03044">arxiv.org</a>)</li>
+<li>[6] Quantum Amplitude Amplification and Estimation. Gilles Brassard et al. (2000) (<a href="http://arxiv.org/abs/quant-ph/0005055">arxiv.org</a>)</li>
+<li>[7] Three stages of the 3-qubit Grover search algorithm (<a href="https://scx2.b-cdn.net/gfx/news/2018/groversearch.jpg">phys.org</a>)</li>
+<li>[8] Iterative quantum amplitude estimation (<a href="https://www.nature.com/articles/s41534-021-00379-1#Abs1">nature</a>)</li>
 </ul>
 
 </div>
