@@ -14607,15 +14607,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>A company is unable to repay asset-secured fixed or floating charge debt.</li>
 <li>A business or consumer does not pay a trade invoice when due</li>
 </ul>
-<!-- ------
 
-# TODO: Add paragraph 
-
-Here we study the QAE algorithm in estamitating the credit at risk, we test the algorithm in a two asset problem... In Section 2... blah blah blah
-
-We introduce a variant of Quantum Amplitude Estimation (QAE), called Iterative QAE (IQAE), which does not rely on Quantum Phase Estimation (QPE) but is only based on Grover’s Algorithm, which reduces the required number of qubits and gates. We provide a rigorous analysis of IQAE and prove that it achieves a quadratic speedup up to a double-logarithmic factor compared to classical Monte Carlo simulation with provably small constant overhead. Furthermore, we show with an empirical study that our algorithm outperforms other known QAE variants without QPE, some even by orders of magnitude, i.e., our algorithm requires significantly fewer samples to achieve the same estimation accuracy and confidence level.
-
------- -->
 </div>
 </div>
 </div>
@@ -14635,15 +14627,7 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.2.-Problem-Parameters">2.2. Problem Parameters<a class="anchor-link" href="#2.2.-Problem-Parameters">&#182;</a></h3><p>.. define what parameters are</p>
-<ul>
-<li>Running 2 assets portfolio<ul>
-<li>Increase assets that are not correlated</li>
-</ul>
-</li>
-<li>Comparison Montecarlo vs QAE (and one with noise reduction)</li>
-<li>Infer number of assets that can be ran in a discreet quantum circuit</li>
-</ul>
+<h3 id="2.2.-Problem-Parameters">2.2. Problem Parameters<a class="anchor-link" href="#2.2.-Problem-Parameters">&#182;</a></h3><p>The introduced quantum algorithm for estimating the credit at risk is a variant of the Quantum Amplitude Estimation (QAE), called Iterative QAE (IQAE). It does not rely on Quantum Phase Estimation (QPE), and is based on Grover’s Algorithm, reducing the required number of qubits and gates needed. We provide a rigorous analysis of IQAE and prove that it achieves a quadratic speedup up to a double-logarithmic factor compared to classical Monte Carlo simulation. We test the algorithm in a two (2) assets portfolio</p>
 
 </div>
 </div>
@@ -14665,42 +14649,14 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 
 </div>
 </div>
-</div>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<!-- -----------------
-
-# TODO: Describe what these values are
-
-- n_z = 2
-
-- z_max = 2
-
-- z_values = np.linspace(-z_max, z_max, 2 ** n_z)
-
-- p_zeros = [0.15, 0.25]
-
-- rhos = [0.1, 0.05]
-
-- lgd = [1, 2]
-
-- K = len(p_zeros)
-
-- alpha = 0.05
-
------------------ -->
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput  celltag_hide-input">
 
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.-Methods">3. Methods<a class="anchor-link" href="#3.-Methods">&#182;</a></h2><p>We went on to show how QAE can be applied to the task of pricing an asset using real quantum hardware. We chose the simple model of a treasury bill whose value depends only on the interest rate. This simple experiment on 5 qubits confirmed the theoretical convergence rate of QAE and underlines its potential advantage compared to classical Monte Carlo methods.</p>
-<p>In order to further demonstrate the capabilities of our algorithm, we used classical simulations of quantum hardware to show that it can also be applied to speed up the computation of risk measures of a simple two-asset portfolio. Nevertheless, we notice that to achieve quantum advantage in a real-world scenario, the quality of current quantum hardware needs to be improved. Errors arising from the limited coherence time and cross-talk when measuring the states of qubits need to be substantially suppressed. Furthermore, the number of qubits must be increased.</p>
-<p>However, the current pace of advances in research directed at improving both quantum hardware and quantum algorithms makes us optimistic that real quantum advantage in risk analysis can be achieved in the future.</p>
+<h2 id="3.-Methods">3. Methods<a class="anchor-link" href="#3.-Methods">&#182;</a></h2><p>In order to further demonstrate the capabilities of our algorithm, we used classical simulations of quantum hardware to show that it can also be applied to speed up the computation of risk measures of a simple two-asset portfolio. Nevertheless, we notice that to achieve quantum advantage in a real-world scenario, the quality of current quantum hardware needs to be improved. Errors arising from the limited coherence time and cross-talk when measuring the states of qubits need to be substantially suppressed. Furthermore, the number of qubits must be increased.</p>
+<p>We went on to show how QAE can be applied to the task of pricing an asset using real quantum hardware. However, the current pace of advances in research directed at improving both quantum hardware and quantum algorithms makes us optimistic that real quantum advantage in risk analysis can be achieved in the future.</p>
 <h3 id="3.1.-How-to-Estimate-the-Risk">3.1. How to Estimate the Risk<a class="anchor-link" href="#3.1.-How-to-Estimate-the-Risk">&#182;</a></h3><p>Value at risk (VaR) is a statistic that quantifies the extent of possible financial losses within a firm, portfolio, or position over a specific time frame.</p>
 <p>A financial firm, for example, may determine an asset has a 3% one-month VaR of 2%, representing a 3% chance of the asset declining in value by 2% during the one-month time frame. The conversion of the 3% chance of occurrence to a daily ratio places the odds of a 2% loss at one day per month.</p>
 <p>The CVar quantifies the average expected loss.</p>
@@ -14713,28 +14669,21 @@ $$ \text{CVaR}_{\alpha}(L) = \mathbb{E}[ L \mid L \geq \text{VaR}_{\alpha}(L)] $
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="3.2.-Classical-Method:-Monte-Carlo-(MC)">3.2. Classical Method: Monte Carlo (MC)<a class="anchor-link" href="#3.2.-Classical-Method:-Monte-Carlo-(MC)">&#182;</a></h3><p>The Monte Carlo method is a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. Monte Carlo Simulation predicts a set of outcomes based on an estimated range of values versus a set of fixed input values.</p>
 <p>In other words, a Monte Carlo Simulation builds a model of possible results by leveraging a probability distribution, such as a uniform or normal distribution, for any variable that has inherent uncertainty. It, then, recalculates the results over and over, each time using a different set of random numbers between the minimum and maximum values. In a typical Monte Carlo experiment, this exercise can be repeated thousands of times to produce a large number of likely outcomes.</p>
-<p>Several combinations of different scenarios are tested and the result of each scenario is analyzed. Therefore it’s slow and expensive.</p>
-<!-- -------
+<p>The idea behind Monte Carlo integration is to estimate the area under a (high dimensional) surface by taking random points and counting how many fall below the surface. The error goes down like the reciprocal of the square root of the number of points. The error estimate has nothing to do with the dimension per se. In that sense Monte Carlo integration is indeed independent of dimension, and for that reason is often used for numerical integration in dimensions too high to use product methods.</p>
+<p>So, when this is translated into software, those n dimensions are the equivalent of a software with n features. If there are no points in the region of interest we would estimate the volume of the region of interest to be zero. The volume is very small, and the absolute error in estimating a small number to be zero is small. But the relative is 100%. Several combinations of different scenarios are tested and the result of each scenario is analyzed. Therefore it’s slow and expensive.</p>
 
-# TODO: include the information about the scaling of the error in the montecarlo method
-
-------- -->
 </div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.3.-Quantum-Amplitude-Estimation-(QAE)">3.3. Quantum Amplitude Estimation (QAE)<a class="anchor-link" href="#3.3.-Quantum-Amplitude-Estimation-(QAE)">&#182;</a></h3><p>section that talks about quantum aplitude estimation is the quantum algorithm used to estimate the VaR. QAE is one of the algortihms at the basis of the quantum revolution, it has the potential to achieve a quadratic speed up for most of the application that are nowadays solved hrough Montercalro Simulatioons. While Montecarlo simlation scales with $O(1/\sqrt{M})$ with M the number of samples, QAE achieve a scaling of $O(1/M)$, where $M$ are the quantum samples. AQE can be understood as a combination of Quantum Phase Estimation and Grover Algorithm.</p>
-<p>include Grover and Quantum Fourier Transform as intermediate steps to explain the Quantum Amplitude Estimation.</p>
-<p>Quantum Amplitude Estimation (QAE) is a fundamental quantum algorithm with the potential to achieve a quadratic speedup for many applications that are classically solved through Monte Carlo (MC) simulation. It has been shown that we can leverage QAE in the financial service sector, e.g., for risk analysis2,3 or option pricing4,5,6, and also for generic tasks such as numerical integration7. While the estimation error bound of classical MC simulation scales as 𝒪(1/𝑀‾‾‾√), where M denotes the number of (classical) samples, QAE achieves a scaling of 𝒪(1/𝑀) for M (quantum) samples, indicating the aforementioned quadratic speedup.</p>
-<p>The canonical version of QAE is a combination of Quantum Phase Estimation (QPE)8 and Grover’s Algorithm. Since other QPE-based algorithms are believed to achieve exponential speedup, most prominently Shor’s Algorithm for factoring9, it has been speculated as to whether QAE can be simplified such that it uses only Grover iterations without a QPE-dependency. Removing the QPE-dependency would help to reduce the resource requirements of QAE in terms of qubits and circuit depth and lower the bar for practical applications of QAE.</p>
-<p>Recently, several approaches have been proposed in this direction. In ref. 10 the authors show how to replace QPE with a set of Grover iterations combined with a Maximum Likelihood Estimation (MLE), in the following called Maximum Likelihood Amplitude Estimation (MLAE). In ref. 11, QPE is replaced by the Hadamard test, analog to Kitaev’s Iterative QPE12,13 and similar approaches14,15.</p>
-<p>Both in refs. 10 and 11 propose potential simplifications of QAE but do not provide rigorous proofs of the correctness of the proposed algorithms. In ref. 11, it is not even clear how to control the accuracy of the algorithm other than possibly increasing the number of measurements of the evolving quantum circuits. Thus, the potential quantum advantage is difficult to compare and we will not discuss it in the remainder of this paper.</p>
-<p>In ref. 16, another variant of QAE was proposed. There, for the first time, it was rigorously proven that QAE without QPE can achieve a quadratic speedup over classical MC simulation. Following16, we call this algorithm QAE, Simplified (QAES). Although this algorithm achieves the desired asymptotic complexity exactly (i.e., without logarithmic factors), the involved constants are very large, and likely to render this algorithm impractical unless further optimized—as shown later in this paper.</p>
-<p>From this you can start to explain what you do to apply the QAE algorithm, i.e., you discuss the mapping of the problem in thw quantum Operator $A$, discuss about the operator $Q$, then how to map the uncertainty model in a quantum register (you already have that section in the ), how the problem of the expected loss is mapped in a quantum circuit (expected loss section) and so on</p>
-<p>In the following, we propose a new version of QAE—called Iterative QAE (IQAE)—that achieves better results than all other tested algorithms. It provably has the desired asymptotic behavior up to a multiplicative log(2/𝛼log2(𝜋/4𝜖)) factor, where ϵ &gt; 0 denotes the target accuracy, and 1 − α the resulting confidence level.</p>
-<p>Like in ref. 16, our algorithm requires iterative queries to the quantum computer to achieve the quadratic speedup and cannot be parallelized. Only MLAE allows the parallel execution of the different queries as the estimate is derived via classical MLE applied to the results of all queries. Although parallelization is a nice feature, the potential speedup is limited. Assuming the length of the queries is doubled in each iteration (like for canonical QAE and MLAE) the speedup is at most a factor of two since the computationally most expensive query dominates all the others.</p>
+<h3 id="3.3.-Quantum-Amplitude-Estimation-(QAE)">3.3. Quantum Amplitude Estimation (QAE)<a class="anchor-link" href="#3.3.-Quantum-Amplitude-Estimation-(QAE)">&#182;</a></h3><p>This is the quantum algorithm used to estimate the VaR. QAE is one of the algortihms at the basis of the quantum revolution, it can be understood as a combination of Quantum Phase Estimation and Grover Algorithm. it has the potential to achieve a quadratic speed up for most of the application that are nowadays solved through Montercarlo (MC) simulations, while these simulations scale with $O(1/\sqrt{M})$ with $M$ the number of samples, QAE achieve a scaling of $O(1/M)$, where $M$ are the quantum samples. It has been shown that we can leverage QAE in the financial service sector, e.g., for risk analysis, option pricing, and also for generic tasks such as numerical integration.</p>
+<p>While the estimation error bound of classical MC simulation scales as $𝒪(1/\sqrt{M})$, where $M$ denotes the number of (classical) samples, QAE achieves a scaling of $𝒪(1/𝑀)$ for $M$ (quantum) samples, indicating the aforementioned quadratic speedup. However, we do not provide rigorous proofs of the correctness of the proposed algorithms. It is not even clear how to control the accuracy of the algorithm other than possibly increasing the number of measurements of the evolving quantum circuits.</p>
+<p>In the following, we propose a new version of QAE—called Iterative QAE (IQAE)—that achieves better results than all other tested algorithms. It provably has the desired asymptotic behavior up to a multiplicative log(2/𝛼log2(𝜋/4𝜖)) factor, where ϵ &gt; 0 denotes the target accuracy, and 1 − α the resulting confidence level.
+our algorithm requires iterative queries to the quantum computer to achieve the quadratic speedup and cannot be parallelized. Only MLAE allows the parallel execution of the different queries as the estimate is derived via classical MLE applied to the results of all queries. Although parallelization is a nice feature, the potential speedup is limited. Assuming the length of the queries is doubled in each iteration (like for canonical QAE and MLAE) the speedup is at most a factor of two since the computationally most expensive query dominates all the others.</p>
+<hr>
+<p>From this you can start to explain what you do to apply the QAE algorithm, i.e., you discuss the mapping of the problem in the quantum Operator $A$, discuss about the operator $Q$, then how to map the uncertainty model in a quantum register (you already have that section in the ), how the problem of the expected loss is mapped in a quantum circuit (expected loss section) and so on</p>
 <p>With MLAE, QAES, and IQAE we have three promising variants of QAE that do not require QPE and it is of general interest to empirically compare their performance. Of similar interest is the question of whether the canonical QAE with QPE—while being (quantum) computationally more expensive—might lead to some performance benefits. To be able to better compare the performance of canonical QAE with MLAE, QAES, and IQAE, we extend QAE by a classical MLE postprocessing based on the observed results. This improves the results without additional queries to the quantum computer and allows us to derive proper confidence intervals.</p>
 
 </div>
@@ -14796,8 +14745,7 @@ $$ |s\rangle = H^{\otimes n} | 0 \rangle^n $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Corresponds to the two-dimensional plane spanned by perpendicular vectors $|w⟩$ and $|s′⟩$ which allows to express the initial state as:</p>
-</blockquote>
+<p>Corresponds to the two-dimensional plane spanned by perpendicular vectors $|w⟩$ and $|s′⟩$ which allows to express the initial state as:</p>
 $$ |s\rangle = \sin \theta | w \rangle + \cos \theta | s' \rangle $$<p>Where</p>
 $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 </div>
@@ -14834,8 +14782,7 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Graph of the amplitudes of the state $|s⟩$.</p>
-</blockquote>
+<p>Graph of the amplitudes of the state $|s⟩$.</p>
 
 </div>
 </div>
@@ -14879,8 +14826,7 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Geometrically this corresponds to a reflection of the state $|s⟩$ about $|s′⟩$.</p>
-</blockquote>
+<p>Geometrically this corresponds to a reflection of the state $|s⟩$ about $|s′⟩$.</p>
 
 </div>
 </div>
@@ -14916,8 +14862,7 @@ $$ \theta = \arcsin \langle s | w \rangle = \arcsin \frac{1}{\sqrt{N}} $$
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>This transformation means that the amplitude in front of the $|w⟩$ state becomes negative, which in turn means that the average amplitude (indicated by a dashed line) has been lowered.</p>
-</blockquote>
+<p>This transformation means that the amplitude in front of the $|w⟩$ state becomes negative, which in turn means that the average amplitude (indicated by a dashed line) has been lowered.</p>
 
 </div>
 </div>
@@ -14962,8 +14907,7 @@ $$ |s\rangle:U_s = 2|s\rangle\langle s| - \mathbb{1} $$<p>This transformation ma
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>Two reflections always correspond to a rotation.</p>
-</blockquote>
+<p>Two reflections always correspond to a rotation.</p>
 
 </div>
 </div>
@@ -14999,8 +14943,7 @@ $$ |s\rangle:U_s = 2|s\rangle\langle s| - \mathbb{1} $$<p>This transformation ma
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote><p>The transformation $U_sU_f$ rotates the initial state $|s⟩$ closer towards the winner $|w⟩$</p>
-</blockquote>
+<p>The transformation $U_sU_f$ rotates the initial state $|s⟩$ closer towards the winner $|w⟩$</p>
 
 </div>
 </div>
@@ -15043,13 +14986,6 @@ $$ |\text{State in Computational Basis}\rangle \quad \xrightarrow[]{\text{QFT}} 
 <p><img src="assets/plot/fourierbasis-counting.gif" alt="fourier-basis"></p>
 <p>The number we want to store dictates the angle at which each qubit is rotated around the Z-axis. In the state $|\widetilde{0}\rangle$, all qubits are in the state $|\widetilde{+}\rangle$. As seen in the example above, to encode the state $|\widetilde{5}\rangle$ on 4 qubits, we rotated the leftmost qubit by $\tfrac{5}{2^n} = \tfrac{5}{16}$ full turns ($\tfrac{5}{16}\times 2\pi$ radians). The next qubit is turned double this radians, $\tfrac{10}{16}\times 2\pi$, this angle is then doubled for the qubit after, and so on.</p>
 <p>Again, note the frequency with which each qubit changes. The leftmost qubit (qubit 0) in this case has the lowest frequency, and the rightmost the highest.</p>
-
-</div>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>
@@ -15378,8 +15314,8 @@ Mapped Operator value: 0.6639
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Exact value:    	0.6409
-Estimated value:	0.6670
-Confidence interval: 	[0.6495, 0.6845]
+Estimated value:	0.6212
+Confidence interval: 	[0.5525, 0.6898]
 </pre>
 </div>
 </div>
@@ -15467,8 +15403,8 @@ The CDF $(x)$ equals the probability of measuring $|1\rangle$ in the objective q
 ....................................................................
 low_level    low_value    level    value    high_level    high_value
 ....................................................................
--1           0.000         1       0.754     3            1.000
- 1           0.754         2       0.958     3            1.000
+-1           0.000         1       0.752     3            1.000
+ 1           0.752         2       0.959     3            1.000
 ....................................................................
  🔚 Finished bisection search 
 ....................................................................
@@ -15477,7 +15413,7 @@ low_level    low_value    level    value    high_level    high_value
 
 Estimated Value at Risk:  2
 Exact Value at Risk:      2
-Estimated Probability:    0.958
+Estimated Probability:    0.959
 Exact Probability:        0.959
 </pre>
 </div>
@@ -15517,11 +15453,11 @@ L &amp; \text{if}\quad L &gt; VaR.
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">        ┌────┐
-q392_0: ┤0   ├
+q363_0: ┤0   ├
         │    │
-q392_1: ┤1   ├
+q363_1: ┤1   ├
         │    │
-  q393: ┤2 F ├
+  q364: ┤2 F ├
         │    │
   a2_0: ┤3   ├
         │    │
@@ -15553,7 +15489,7 @@ q392_1: ┤1   ├
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;qiskit.circuit.instructionset.InstructionSet at 0x1222dd5c0&gt;</pre>
+<pre>&lt;qiskit.circuit.instructionset.InstructionSet at 0x1055e8c40&gt;</pre>
 </div>
 
 </div>
@@ -15586,7 +15522,7 @@ q392_1: ┤1   ├
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Estimated CVaR: 3.2666
+<pre>Estimated CVaR: 3.2953
 Exact CVaR:     3.0000
 </pre>
 </div>
@@ -15621,7 +15557,7 @@ Exact CVaR:     3.0000
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Exact CVaR:    	3.0000
-Estimated CVaR:	3.3153
+Estimated CVaR:	3.1948
 </pre>
 </div>
 </div>
